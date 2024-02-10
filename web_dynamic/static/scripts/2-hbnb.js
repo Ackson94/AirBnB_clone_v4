@@ -1,10 +1,10 @@
 $('document').ready(function () {
-  const url = 'http://' + window.location.hostname + ':5001/api/v1/status/';
-  $.get(url, function (response) {
+  // const url = 'http://' + window.location.hostname + ':5001/api/v1/status/';
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (response) {
     if (response.status === 'OK') {
-      $('DIV#api_status').addClass('available');
+      $('#api_status').addClass('available');
     } else {
-      $('DIV#api_status').removeClass('available');
+      $('#api_status').removeClass('available');
     }
   });
 
@@ -22,3 +22,4 @@ $('document').ready(function () {
     }
   });
 });
+
