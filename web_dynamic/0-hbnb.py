@@ -9,8 +9,6 @@ import uuid
 # flask setup
 app = Flask(__name__)
 app.url_map.strict_slashes = False
-port = 5000
-host = '0.0.0.0'
 
 
 # begin flask page rendering
@@ -44,6 +42,5 @@ def hbnb_filters(the_id=None):
 
 
 if __name__ == "__main__":
-    """
-    MAIN Flask App"""
-    app.run(host=host, port=port)
+    """run Flask Application instance."""
+    app.run(host='0.0.0.0', port=5000)
