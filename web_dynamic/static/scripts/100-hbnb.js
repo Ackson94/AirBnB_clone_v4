@@ -1,16 +1,16 @@
 $('document').ready(function () {
-  const api = 'http://' + window.location.hostname;
+  // const api = 'http://' + window.location.hostname;
 
-  $.get(api + ':5001:/api/v1/status/', function (response) {
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (response) {
     if (response.status === 'OK') {
-      $('DIV#api_status').addClass('available');
+      $('#api_status').addClass('available');
     } else {
-      $('DIV#api_status').removeClass('available');
+      $('#api_status').removeClass('available');
     }
   });
 
   $.ajax({
-    url: api + ':5001/api/v1/places_search/',
+    url: 'http://0.0.0.0:5001/api/v1/places_search',
     type: 'POST',
     data: '{}',
     contentType: 'application/json',
@@ -62,9 +62,9 @@ $('document').ready(function () {
     }
   });
 
-  $('BUTTON').click(function () {
+  $('BUTTON').on("click", function () {
     $.ajax({
-      url: api + ':5001/api/v1/places_search/',
+      url: 'http://0.0.0.0:5001/api/v1/places_search',
       type: 'POST',
       data: JSON.stringify({
         'states': Object.keys(states),
@@ -111,3 +111,4 @@ function appendPlaces (data) {
               </ARTICLE>`;
   }));
 }
+
